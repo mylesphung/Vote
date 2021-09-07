@@ -22,12 +22,14 @@ for key, value in countyFips.items():
 
 ## unpack the values of the flipped dictionary, and add the fips of counties with majority republican vote
 repFips = []
+repVote = []
 for key, value in countyFlipped.items():
     partyVotes = {}
     for x in range(len(value)):
         partyVotes[data2020["party"][value[x]]] = data2020["candidatevotes"][value[x]]
     if max(partyVotes, key=partyVotes.get) == "REPUBLICAN":
+        repVote.append(partyVotes["REPUBLICAN"])
         repFips.append(key)
-print(repFips)
-print(len(countyFlipped))
-print(len(repFips))
+
+df = pd.DataFrame(list(zip(repFips, repVote)), columns = ["FIPS Code", "Rep Vote"])
+df.to_csv("C:/Users/Miles/Desktop/test_mapdata.csv")
