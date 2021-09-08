@@ -1,13 +1,14 @@
 import pandas as pd
-import geopandas as gpd
-import geopy
-from geopy.geocoders import Nominatim
-from formatvotes import repFips
+from geopy.geocoders import DataBC
+from formatvotes import repFips, countyNames
 
-locator = Nominatim(user_agent="myGeocoder")
+locator = DataBC(user_agent="countygeocoder")
 location = locator.geocode("Autauga, Alabama, USA")
 
 print(location.address)
 print(location.latitude, location.longitude)
 
-for i in range(len(repFips)):
+countyLocations = []
+for i in range(750):
+    latlong = locator.geocode(countyNames[i], timeout=None);
+    countyLocations.append(latlong)

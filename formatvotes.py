@@ -21,13 +21,20 @@ def main():
             countyFlipped[value].append(key)
 
     ## unpack the values of the flipped dictionary, and add the fips of counties with majority republican vote
-    global repFips ## have to make the variable global in order to use in other scripts
+    ## have to make the lists global in order to use in other scripts
+    global repFips
+    global countyNames
+    countyNames = []
     repFips = []
+    rowNumber = ()
     for key, value in countyFlipped.items():
         partyVotes = {}
         for x in range(len(value)):
             partyVotes[data2020["party"][value[x]]] = data2020["candidatevotes"][value[x]]
+            rowNumber = value[x]
         if max(partyVotes, key=partyVotes.get) == "REPUBLICAN":
             repFips.append(key)
-    print(len(countyFlipped))
+            countyNames.append(str(data2020["county_name"][rowNumber]+", "+data2020["state"][rowNumber]+", USA"))
+    print(len(repFips))
+    print(len(countyNames))
 main()
