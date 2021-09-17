@@ -1,7 +1,9 @@
 import pandas as pd
 ## read data into dataframe
 def main():
-    data = pd.read_csv("C:/Users/Miles/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv").dropna()
+    data = pd.read_csv("/Users/MP/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv").dropna()
+## for mac use: /Users/MP/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv
+## for windows use: C:/Users/Miles/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv
 
     ## sort the data into separate dataframes by year, and reset/replace the index (only using 2020 because the Census data is from 2020)
     data2020 = pd.DataFrame(data[data.year == 2020])
