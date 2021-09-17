@@ -9,8 +9,8 @@ def main():
 
     ## make a dictionary with all of the fips codes and their corresponding row numbers
     countyFips = {}
-    for x in range(len(data2020)):
-        countyFips[x] = data2020["county_fips"][x]
+    for i in range(len(data2020)):
+        countyFips[i] = data2020["county_fips"][i]
 
     ## use a flipped dictionary to match combine row numbers with their corresponding fips code
     countyFlipped = {}
@@ -29,9 +29,9 @@ def main():
     rowNumber = ()
     for key, value in countyFlipped.items():
         partyVotes = {}
-        for x in range(len(value)):
-            partyVotes[data2020["party"][value[x]]] = data2020["candidatevotes"][value[x]]
-            rowNumber = value[x]
+        for i in range(len(value)):
+            partyVotes[data2020["party"][value[i]]] = data2020["candidatevotes"][value[i]]
+            rowNumber = value[i]
         if max(partyVotes, key=partyVotes.get) == "REPUBLICAN":
             repFips.append(key)
             countyNames.append(str(data2020["county_name"][rowNumber]+", "+data2020["state"][rowNumber]+", USA"))
