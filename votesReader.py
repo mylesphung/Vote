@@ -1,7 +1,7 @@
 import pandas as pd
 ## read data into dataframe
 def main():
-    data = pd.read_csv("C:/Users/Miles/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv").dropna()
+    data = pd.read_csv("C:/Users/Miles/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv")
 ## for mac use: /Users/MP/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv
 ## for windows use: C:/Users/Miles/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv
 
