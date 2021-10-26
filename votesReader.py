@@ -1,7 +1,7 @@
 import pandas as pd
 ## read data into dataframe
 def main():
-    data = pd.read_csv("/Users/MP/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv").dropna()
+    data = pd.read_csv("C:/Users/Miles/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv").dropna()
 ## for mac use: /Users/MP/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv
 ## for windows use: C:/Users/Miles/Documents/GitHub/Vote/Datasets/countypres_2000-2020.csv
 
@@ -24,10 +24,9 @@ def main():
 
     ## unpack the values of the flipped dictionary, and add the fips of counties with majority republican vote
     ## have to make the lists global in order to use in other scripts
-    global repFips
-    global countyNames
-    countyNames = []
-    repFips = []
+
+    global repLocations
+    repLocations = {}
     rowNumber = ()
     for key, value in countyFlipped.items():
         partyVotes = {}
@@ -35,8 +34,6 @@ def main():
             partyVotes[data2020["party"][value[i]]] = data2020["candidatevotes"][value[i]]
             rowNumber = value[i]
         if max(partyVotes, key=partyVotes.get) == "REPUBLICAN":
-            repFips.append(key)
-            countyNames.append(str(data2020["county_name"][rowNumber]+", "+data2020["state"][rowNumber]+", USA"))
-    print(len(repFips))
-    print(len(countyNames))
+            repLocations[key] = str(data2020["county_name"][rowNumber]+", "+data2020["state"][rowNumber]+", USA")
+    print(len(repLocations))
 main()
