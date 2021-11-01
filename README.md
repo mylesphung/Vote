@@ -1,5 +1,5 @@
 # Vote
-Uses 2020 Census and MIT presidential returns election data to identify majority African-American counties that voted Republican in the 2020 presidential election. Prints out the names of the identified counties, their coordinates (latitude, longitude), and plots them on a map (feature not finished yet). 
+Uses 2020 Census and MIT presidential returns election data to identify majority African-American counties that voted Republican in the 2020 presidential election. Prints out the names of the identified counties, their coordinates (latitude, longitude), and plots them on a map (feature not finished yet). <br /> Note: make sure to change the paths to the datasets in the programs to the corresponding location in your computer.
 <br /> Program breakdown: 
 - censusReader: reads the data from the Census, and identifies majority African-American counties
 - votesReader: reads the MIT election data, and identifies counties that voted Republican in the 2020 election
