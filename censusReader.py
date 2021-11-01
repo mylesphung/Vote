@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 
 def main():
-    data = pd.read_csv("C:/Users/Miles/Documents/GitHub/Vote/Datasets/DECENNIALPL2020.P1_data_with_overlays_2021-09-16T090928.csv")
+    data = pd.read_csv("insert path here")
+    ## set the above string to your own path, for example mine would be: C:/Users/Miles/Documents/GitHub/Vote/Datasets/DECENNIALPL2020.P1_data_with_overlays_2021-09-16T090928.csv
     data2 = data.drop( ## takes out the index and total columns, so it can be used to find max values later
     ["GEO_ID", "NAME", "P1_001N", "P1_002N", "P1_009N", "P1_026N"],
     axis = 1)
